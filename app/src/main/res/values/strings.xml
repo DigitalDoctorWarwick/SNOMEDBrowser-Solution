@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SNOMED Browser</string>
+    <string name="published">Published</string>
+    <string name="title_activity_concept">ConceptActivity</string>
+    <string name="empty_view_text">No terms to display</string>
+    <string name="search_text">Search Terms</string>
+</resources>
