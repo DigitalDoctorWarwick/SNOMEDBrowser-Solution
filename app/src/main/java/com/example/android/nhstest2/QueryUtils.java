@@ -83,12 +83,12 @@ public final class QueryUtils {
         // Catch the exception so the app doesn't crash, and print the error message to the logs.
         try {
             JSONObject rootJSONObject = new JSONObject(conceptJSON);
-            JSONArray matches = rootJSONObject.getJSONArray("matches");
+            JSONArray matches = rootJSONObject.getJSONArray("items"); //"matches"
             for (int i = 0; i < matches.length(); i++){
                 JSONObject link = matches.getJSONObject(i);
                 String term = link.getString("term");
-                long conceptId = link.getLong("conceptId");
-                String fsn = link.getString("fsn");
+                long conceptId = link.getJSONObject("concept").getLong("conceptId");
+                String fsn = link.getJSONObject("concept").getJSONObject("fsn").getString("term");
 
                 conceptItems.add(new ConceptItem(term, conceptId, fsn));//, url));
                 //Log.i("QueryUtils",term + " " + conceptId + " " + fsn);
@@ -107,8 +107,8 @@ public final class QueryUtils {
     private static Concept extractConceptFromJson(String conceptJSON) {
         try {
             JSONObject rootJSONObject = new JSONObject(conceptJSON);
-            String fullySpecifiedName = rootJSONObject.getString("fullySpecifiedName");
-            String preferredTerm = rootJSONObject.getString("preferredTerm");
+            String fullySpecifiedName = rootJSONObject.getJSONObject("fsn").getString("term");
+            String preferredTerm = rootJSONObject.getJSONObject("pt").getString("term");
             String active = rootJSONObject.getString("active");
             String conceptId = rootJSONObject.getString("conceptId");
 
@@ -140,7 +140,7 @@ public final class QueryUtils {
                 JSONObject relatedConcept = rootJSONArray.getJSONObject(i);
 
                 String conceptId = relatedConcept.getString("conceptId");
-                String preferredTerm = relatedConcept.getString("preferredTerm");
+                String preferredTerm = relatedConcept.getJSONObject("pt").getString("term");
 
                 if (relationType == ConceptDetailActivity.CHILD_CODE) {
                     concept.addChild(conceptId, preferredTerm);
@@ -177,6 +177,7 @@ public final class QueryUtils {
             urlConnection.setReadTimeout(30000 /* milliseconds */);
             urlConnection.setConnectTimeout(20000 /* milliseconds */);
             urlConnection.setRequestMethod("GET");
+            Log.i("QueryUtils", url.toString());
             urlConnection.connect();
 
             // If the request was successful (response code 200),
@@ -188,7 +189,7 @@ public final class QueryUtils {
                 Log.e("QueryUtils", "Error response code: " + urlConnection.getResponseCode());
             }
         } catch (IOException e) {
-            Log.e("QueryUtils", "Problem retrieving the concept list JSON results.", e);
+            Log.e("QueryUtils", "Problem retrieving the concept list JSON results. " + e.getMessage(), e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();

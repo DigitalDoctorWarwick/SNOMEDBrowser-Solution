@@ -31,17 +31,19 @@ public class MainActivity extends AppCompatActivity
     public static final String edition = "en-edition";
     public static final String release = "v20180731";
     private static String query = "a";
-    private static final String mode = "partialMatching";
-    private static final String language = "english";
+    private static final String mode = "STANDARD"; //"partialMatching";
+    private static final String language = "en"; //"english";
     private static final String semanticFilter = "disorder";
+    private static final boolean active = true;
     private static final int returnLimit = 100;
 
     private static final String NHS_REQUEST_URL =
-            "http://browser.ihtsdotools.org/api/v2/snomed/"+edition+"/"+release+"/descriptions";
+    //        "http://browser.ihtsdotools.org/api/v2/snomed/"+edition+"/"+release+"/descriptions";
+              "https://snowstorm.ihtsdotools.org/snowstorm/snomed-ct/browser/MAIN/descriptions";
 
     public static final String CONCEPT_REQUEST_URL =
-            "http://browser.ihtsdotools.org/api/v2/snomed/"+edition+"/"+release+"/concepts/";
-
+    //        "http://browser.ihtsdotools.org/api/v2/snomed/"+edition+"/"+release+"/concepts/";
+              "https://snowstorm.ihtsdotools.org/snowstorm/snomed-ct/browser/MAIN/concepts/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,11 +122,12 @@ public class MainActivity extends AppCompatActivity
         Uri baseUri = Uri.parse(NHS_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
-        uriBuilder.appendQueryParameter("query", query);
+        uriBuilder.appendQueryParameter("term", query);
         uriBuilder.appendQueryParameter("searchMode", mode);
-        uriBuilder.appendQueryParameter("lang", language);
-        uriBuilder.appendQueryParameter("returnLimit", ""+returnLimit);
-        uriBuilder.appendQueryParameter("semanticFilter", semanticFilter);
+        uriBuilder.appendQueryParameter("language", language);
+        uriBuilder.appendQueryParameter("limit", ""+returnLimit);
+        uriBuilder.appendQueryParameter("semanticTags", semanticFilter);
+        uriBuilder.appendQueryParameter("conceptActive", String.valueOf(active));
 
         return new ConceptLoader(this, uriBuilder.toString());
     }

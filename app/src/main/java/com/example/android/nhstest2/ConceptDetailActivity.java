@@ -26,7 +26,7 @@ public class ConceptDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_concept_detail);
         mConceptUri = getIntent().getData();
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
 
         ConceptAsyncTask conceptAsyncTask = new ConceptAsyncTask();
         conceptAsyncTask.execute();
@@ -80,7 +80,8 @@ public class ConceptDetailActivity extends AppCompatActivity {
             updateUi(concept);
 
             String relatedQueryURL =
-                    "http://browser.ihtsdotools.org/api/v2/snomed/"+MainActivity.edition+"/"+MainActivity.release+"/concepts/";
+            //        "http://browser.ihtsdotools.org/api/v2/snomed/"+MainActivity.edition+"/"+MainActivity.release+"/concepts/";
+                    "https://snowstorm.ihtsdotools.org/snowstorm/snomed-ct/browser/MAIN/concepts/";
             Uri baseUri = Uri.parse(relatedQueryURL);
 
             Uri.Builder childUriBuilder = baseUri.buildUpon();
@@ -96,6 +97,7 @@ public class ConceptDetailActivity extends AppCompatActivity {
             parentUriBuilder.appendPath("parents");
             parentUriBuilder.appendQueryParameter("form","inferred");
             RelatedConceptAsyncTask parentConceptAsyncTask = new RelatedConceptAsyncTask();
+            Log.i("ConceptDetailActivity", parentUriBuilder.build().toString());
             parentConceptAsyncTask.execute(parentUriBuilder.build().toString(), String.valueOf(PARENT_CODE));
         }
 
