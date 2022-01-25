@@ -11,7 +11,9 @@
         android:layout_height="wrap_content"
         android:hint="@string/search_text"
         android:layout_margin="8dp"
-        android:lines="1"/>
+        android:lines="1"
+        android:importantForAutofill="no"
+        android:inputType="text" />
 
     <TextView
         android:layout_width="match_parent"

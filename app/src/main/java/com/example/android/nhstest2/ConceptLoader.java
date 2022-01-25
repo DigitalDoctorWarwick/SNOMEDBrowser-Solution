@@ -12,7 +12,7 @@ import java.util.List;
 public class ConceptLoader extends AsyncTaskLoader<List<ConceptItem>> {
 
     /** Query URL */
-    private String mUrl;
+    private final String mUrl;
 
     /**
      * Constructs a new {@link ConceptLoader}.

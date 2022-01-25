@@ -3,19 +3,19 @@ package com.example.android.nhstest2;
 import java.util.ArrayList;
 
 public class Concept {
-    private String fullySpecifiedName;
-    private String preferredTerm;
-    private String active;
-    private String conceptId;
+    private final String fullySpecifiedName;
+    private final String preferredTerm;
+    private final String active;
+    private final String conceptId;
 
-    private ArrayList<String> descriptionCodes;
-    private ArrayList<String> descriptionTerms;
+    private final ArrayList<String> descriptionCodes;
+    private final ArrayList<String> descriptionTerms;
 
-    private ArrayList<String> childCodes;
-    private ArrayList<String> childTerms;
+    private final ArrayList<String> childCodes;
+    private final ArrayList<String> childTerms;
 
-    private ArrayList<String> parentCodes;
-    private ArrayList<String> parentTerms;
+    private final ArrayList<String> parentCodes;
+    private final ArrayList<String> parentTerms;
 
     Concept(String fullySpecifiedName, String preferredTerm, String active, String conceptId) {
         this.fullySpecifiedName = fullySpecifiedName;

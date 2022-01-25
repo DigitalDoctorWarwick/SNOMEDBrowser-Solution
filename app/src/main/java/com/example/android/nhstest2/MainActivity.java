@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.content.Loader;
 import android.app.LoaderManager;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity
     private ConceptItemAdapter mAdapter;
 
     /** Used query params */
-    public static final String edition = "en-edition";
-    public static final String release = "v20180731";
+    //public static final String edition = "en-edition";
+    //public static final String release = "v20180731";
     private static String query = "a";
     private static final String mode = "STANDARD"; //"partialMatching";
     private static final String language = "en"; //"english";
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity
         conceptListView.setEmptyView(findViewById(R.id.empty_view));
 
         // Create a new {@link ArrayAdapter} of concepts
-        mAdapter = new ConceptItemAdapter(this, new ArrayList<ConceptItem>());
+        mAdapter = new ConceptItemAdapter(this, new ArrayList<>()); //ConceptItem
 
         // Init loading spinner
         pb = findViewById(R.id.pbLoading);

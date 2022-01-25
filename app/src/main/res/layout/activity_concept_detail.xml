@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,7 +16,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Preferred Term"
+            android:text="@string/preferred_term"
             android:textColor="@android:color/darker_gray" />
 
         <TextView
@@ -37,7 +36,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fully specified name: "
+                android:text="@string/fully_specified_name"
                 android:textColor="@android:color/darker_gray" />
 
             <TextView
@@ -52,7 +51,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Concept ID: "
+                android:text="@string/concept_id"
                 android:textColor="@android:color/darker_gray" />
 
             <TextView
@@ -65,7 +64,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Active: "
+                android:text="@string/active"
                 android:textColor="@android:color/darker_gray" />
 
             <TextView
@@ -80,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
-            android:text="Descriptions"
+            android:text="@string/descriptions"
             android:textColor="@android:color/holo_blue_light"
             android:textSize="18sp" />
 
@@ -88,7 +87,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="16dp"
-            android:text="(Description ID, Term)"
+            android:text="@string/description_id_term"
             android:textColor="@android:color/darker_gray" />
 
         <GridLayout
@@ -102,7 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
-            android:text="Child Concepts"
+            android:text="@string/child_concepts"
             android:textColor="@android:color/holo_blue_light"
             android:textSize="18sp" />
 
@@ -110,7 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="16dp"
-            android:text="(Concept ID, Term), Clickable"
+            android:text="@string/concept_id_term_clickable"
             android:textColor="@android:color/darker_gray" />
 
         <GridLayout
@@ -124,7 +123,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
-            android:text="Parent Concepts"
+            android:text="@string/parent_concepts"
             android:textColor="@android:color/holo_blue_light"
             android:textSize="18sp" />
 
@@ -132,7 +131,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="16dp"
-            android:text="(Concept ID, Term), Clickable"
+            android:text="@string/concept_id_term_clickable"
             android:textColor="@android:color/darker_gray" />
 
         <GridLayout

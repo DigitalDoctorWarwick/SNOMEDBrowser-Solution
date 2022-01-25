@@ -4,4 +4,13 @@
     <string name="title_activity_concept">ConceptActivity</string>
     <string name="empty_view_text">No terms to display</string>
     <string name="search_text">Search Terms</string>
+    <string name="preferred_term">Preferred Term</string>
+    <string name="fully_specified_name">Fully specified name:</string>
+    <string name="concept_id">Concept ID:</string>
+    <string name="active">Active:</string>
+    <string name="descriptions">Descriptions</string>
+    <string name="description_id_term">(Description ID, Term)</string>
+    <string name="child_concepts">Child Concepts</string>
+    <string name="concept_id_term_clickable">(Concept ID, Term), Clickable</string>
+    <string name="parent_concepts">Parent Concepts</string>
 </resources>

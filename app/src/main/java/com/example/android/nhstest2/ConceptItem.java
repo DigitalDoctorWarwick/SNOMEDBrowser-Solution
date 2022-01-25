@@ -2,9 +2,9 @@ package com.example.android.nhstest2;
 
 public class ConceptItem {
 
-    private String mTerm;
-    private long mConceptId;
-    private String mFsn;
+    private final String mTerm;
+    private final long mConceptId;
+    private final String mFsn;
 
     ConceptItem(String term, long conceptId, String fsn){
         mTerm = term;
