@@ -26,7 +26,7 @@ public class ConceptDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_concept_detail);
         mConceptUri = getIntent().getData();
-        //getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ConceptAsyncTask conceptAsyncTask = new ConceptAsyncTask();
         conceptAsyncTask.execute();
